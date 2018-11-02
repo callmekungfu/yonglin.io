@@ -132,22 +132,39 @@
 
   <section class="contact">
     <div class="container">
-      <div class="col-md-12">
-        <div class="contact-form">
-          <h3>Want to Work Together?</h3>
-          <p>I enjoy talking to passionate people, if you are interested in working together with me, connect with me, or just want to chat, I'm looking forward to hearing from you~</p>
-          <button class="btn btn-black btn-fancy">Let's Connect!</button>
+      <div class="col-md-12" style="position: relative">
+        <div class="contact-form v-center">
+          <div class="contact-prompt">
+            <h3 class="animated fast contact-title">Want to Work Together?</h3>
+            <p class="animated fast contact-desc">I enjoy talking to passionate people, if you are interested in working together with me, connect with me, or just want to chat, I'm looking forward to hearing from you~</p>
+            <button class="btn btn-black btn-fancy contact-btn animated fast">Let's Connect!</button>
+          </div>
+          <div class="inline-contact">
+            <h4 class="animated fast info-prompt">Hello there! <input type="text" placeholder="Your Name"/>, your email is <input type="email" placeholder="Your Email"/>. How can I help you today?</h4>
+            <div>
+              <button class="btn btn-black animated fast step2" data-subject="oppo">
+                I have an opportunity for you
+              </button>
+              <button class="btn btn-black animated fast step2" data-subject="colab">
+                I want to collaborate
+              </button>
+              <button class="btn btn-black animated fast step2" data-subject="message">
+                Just want to leave a message
+              </button>
+            </div>
+          </div>
         </div>
+        <textarea name="message" id="contactMessage" class="hidden animated fast" placeholder="Type in your message here. Say something nice :)"></textarea>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div>Brought to you by Yong Lin Wang with <span class="heart">♥</span></div>
+    <div>Brought to you by Yong Lin Wang with 💻</div>
     <div class="social-media-list">
       <ul class="social-links">
-        <a href="#"><li>Github</li></a>
-        <a href="#"><li>LinkedIn</li></a>
+        <a href="https://github.com/callmekungfu"><li>Github</li></a>
+        <a href="https://linkedin.com/in/yonglinwang"><li>LinkedIn</li></a>
         <a href="#"><li>Instagram</li></a>
       </ul>
     </div>
@@ -166,6 +183,7 @@
   <script src="js/anime.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/link.js"></script>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74520113-5"></script>
