@@ -6,6 +6,14 @@
   position: absolute;
 }
 
+.nav-light .nav-brand-type {
+  color: #feffff
+}
+
+.nav-light .nav-link {
+  color: #feffff
+}
+
 .nav-container {
   width: 80%;
   color: rgb(17, 17, 17);
