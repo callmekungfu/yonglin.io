@@ -120,6 +120,51 @@ $('.step2').click((evt) => {
   }
 });
 
+$('#aboutMeTrigger').click((evt) => {
+  evt.preventDefault();
+  var $aboutMe = $('.about-me');
+  $aboutMe.removeClass('fadeOutLeftBig')
+  $aboutMe.removeClass('hidden');
+  $aboutMe.addClass('fadeInLeftBig');
+  $('.main').fadeOut();
+  setTimeout(() => {
+    var typeOptions = {
+      strings: ["I am Yong Lin Wang.\nA multidisciplinary software developer."],
+      typeSpeed: 60,
+      onComplete: () => {
+        setTimeout(() => {
+          $('.type-intro h2').addClass('fadeOut');
+          setTimeout(() => {
+            $('.type-intro h2').hide();
+            $('.type-intro').css({
+              'height': '100vh'
+            });
+            $('.bio').addClass('fadeIn');
+          }, 600)
+        }, 500)
+      }
+    }
+    new Typed(".type-intro h2", typeOptions);
+  }, 1000)
+});
+
+$('.close-about-us').click(() => {
+  var $aboutMe = $('.about-me');
+  $('.main').show()
+  $aboutMe.removeClass('fadeInLeftBig');
+  $aboutMe.addClass('fadeOutLeftBig');
+  setTimeout(() => {
+    $aboutMe.addClass('hidden');
+  }, 900);
+})
+
+$('.contact-link').click(function() {
+  $('html,body').animate({
+      scrollTop: $(".contact").offset().top
+    }, 1000);
+});
+
+
 $('.contact-info').keyup((evt) => {
   var $this = $(evt.target);
   if ($this.val().length) {
@@ -179,7 +224,7 @@ function contactStep2() {
 
 function resetContactPage() {
 
-} 
+}
 
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;

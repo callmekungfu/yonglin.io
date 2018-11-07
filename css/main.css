@@ -150,6 +150,10 @@ section {
   height: 90%;
 }
 
+.w-100 {
+  width: 100% !important;
+}
+
 .v-center {
   display: flex;
   align-items: center;
@@ -427,6 +431,71 @@ footer .social-links a {
   color: rgb(17, 17, 17);
 }
 
+.about-me {
+  opacity: 0;
+  background: #222;
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
+
+.type-intro {
+  height: 80vh;
+}
+
+.type-intro h2 {
+  color: #feffff;
+  margin: 0;
+  white-space: pre;
+}
+
+.type-intro h1,
+  {
+  color: #feffff;
+  margin: 0;
+}
+
+.bio {
+  position: relative;
+  opacity: 0;
+  margin-top: 50px;
+  color: #feffff79;
+  width: 100%;
+}
+
+.bio h1, h3 {
+  color: #feffff;
+  margin: 0;
+}
+
+.contact-title {
+  color: #222;
+}
+
+.close-about-us {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+}
+
+.about-description {
+  width: 45%;
+  font-size: 1em;
+  margin-bottom: 80px;
+}
+
+.about-details p{
+  font-size: 1em;
+}
+
+.bio ul {
+  padding: 0;
+  list-style: none;
+}
+
 /* ==========================================================================
    Project Details Page
    ========================================================================== */
@@ -435,12 +504,12 @@ footer .social-links a {
   margin: 100px 0;
 }
 
-.project-details video{
+.project-details video {
   max-width: 80%;
   margin: 0 auto
 }
 
-.project-details h2{
+.project-details h2 {
   margin-bottom: 0;
 }
 
@@ -459,7 +528,7 @@ footer .social-links a {
   height: 200px;
 }
 
-@media screen and ( min-width: 768px ) {
+@media screen and (min-width: 768px) {
   .carousel-cell img {
     height: 400px;
   }
@@ -547,6 +616,10 @@ p {
 .text-muted {
   color: #999;
   font-family: monospace;
+}
+
+.sub-header {
+  margin-top: 0%;
 }
 
 .heart {
