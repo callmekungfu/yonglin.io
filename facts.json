@@ -1,0 +1,28 @@
+{
+    "facts": [
+        {
+            "icon": "🎵",
+            "content": "My favorite song at the moment is Natural by Imagine Dragons"
+        },
+        {
+            "icon": "😸",
+            "content": "I have a American Bobtail Cat named Tiger"
+        },
+        {
+            "icon": "🎮",
+            "content": "I am currently playing Zelda: Breath of The Wild"
+        },
+        {
+            "icon": "🇨🇳",
+            "content": "I'm born in China! I moved to Canada after middle school."
+        },
+        {
+            "icon": "☕",
+            "content": "I like Mocha Coffee or Americano, depending on the day..."
+        },
+        {
+            "icon": "🥤",
+            "content": "Bubble tea is life, brown rice green milk tea is my favorite."
+        }
+    ]
+}

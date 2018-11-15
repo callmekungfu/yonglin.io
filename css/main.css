@@ -261,6 +261,7 @@ section {
   border-radius: 3px;
   padding: 0 5px;
   cursor: pointer;
+  opacity: 0;
 }
 
 .hero .fun-fact .fun-fact-icon {
@@ -570,8 +571,14 @@ h5 {
 a {
   position: relative;
   cursor: pointer;
+  color: #222;
+  text-decoration: none;
   font-size: 1.1em;
   font-family: 'Libre Baskerville', serif;
+}
+
+a:focus {
+  color: #222
 }
 
 a:before {

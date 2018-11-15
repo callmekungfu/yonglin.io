@@ -3,6 +3,28 @@ var message = {
   contact: {}
 };
 
+var facts;
+
+$(document).ready(() => {
+  $.ajax({
+    type: "GET",
+    url: "/facts.json",
+    dataType: "json",
+  })
+  .done((data) => {
+    var $text = $('.fun-fact').find('p');
+    var $icon = $('.fun-fact').find('.fun-fact-icon');
+    facts = shuffle(data.facts);
+    $icon.text(facts[0].icon);
+    $text.text(facts[0].content);
+    $('.fun-fact').addClass('fadeInUp');
+    $icon.removeClass("bounceOut")
+    $text.removeClass("fadeOutUp");
+    $icon.addClass("bounceIn")
+    $text.addClass("fadeInUp");
+  });
+});
+
 // Project Revealer
 $('.project').each(function () {
   var loaderInit = new TimelineMax();
@@ -46,19 +68,26 @@ $('.project').each(function () {
   }).setTween(loaderInit).addTo(controller)
 });
 
+var factCounter = 1;
 // Fun facts
 $('.fun-fact').click(function () {
+  if (factCounter === facts.length) {
+    factCounter = 0;
+  }
   var $text = $(this).find('p');
   var $icon = $(this).find('.fun-fact-icon');
   $icon.removeClass("bounceIn");
   $text.removeClass("fadeInUp");
-  $icon.addClass("bounceOut")
+  $icon.addClass("bounceOut");
   $text.addClass("fadeOutUp");
   setTimeout(function () {
+    $icon.text(facts[factCounter].icon);
+    $text.text(facts[factCounter].content);
     $icon.removeClass("bounceOut")
     $text.removeClass("fadeOutUp");
     $icon.addClass("bounceIn")
     $text.addClass("fadeInUp");
+    factCounter++;
   }, 800)
 })
 
@@ -222,11 +251,26 @@ function contactStep2() {
   }, 600)
 };
 
-function resetContactPage() {
-
-}
-
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
