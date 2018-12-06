@@ -117,7 +117,8 @@ html {
 
 body {
   height: 100%;
-  background: #feffff
+  background: #feffff;
+  display: none;
 }
 
 section {
@@ -210,6 +211,12 @@ section {
 
 .col-md-1 {
   grid-column: span 1;
+}
+
+.fixed-bottom {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 .hero {
@@ -465,7 +472,8 @@ footer .social-links a {
   width: 100%;
 }
 
-.bio h1, h3 {
+.bio h1,
+h3 {
   color: #feffff;
   margin: 0;
 }
@@ -488,13 +496,29 @@ footer .social-links a {
   margin-bottom: 80px;
 }
 
-.about-details p{
+.about-details p {
   font-size: 1em;
 }
 
 .bio ul {
   padding: 0;
   list-style: none;
+}
+
+/* ==========================================================================
+   QR Landing Page Page
+   ========================================================================== */
+
+.social {
+  margin: 0 auto;
+  width: 25%;
+}
+
+.social .social-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around
 }
 
 /* ==========================================================================
@@ -505,8 +529,13 @@ footer .social-links a {
   margin: 100px 0;
 }
 
+.article-video {
+  width: 80%;
+  margin: 0 auto
+}
+
 .project-details video {
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto
 }
 
@@ -701,6 +730,10 @@ button,
   transition: all ease-in-out 0.15s;
 }
 
+.btn::before {
+  display: none !important;
+}
+
 .btn-black {
   background: #222;
   color: #feffff
@@ -728,6 +761,18 @@ button,
 .input-error {
   border-bottom-color: rgb(226, 59, 59) !important;
   color: rgb(226, 59, 59) !important;
+}
+
+/* ==========================================================================
+   Spacing classes
+   ========================================================================== */
+
+.mb-25 {
+  margin-bottom: 25px
+}
+
+.mb-50 {
+  margin-bottom: 50px
 }
 
 /* ==========================================================================

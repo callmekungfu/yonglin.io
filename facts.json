@@ -23,6 +23,10 @@
         {
             "icon": "🥤",
             "content": "Bubble tea is life, brown rice green milk tea is my favorite."
+        },
+        {
+            "icon": "👩‍💻",
+            "content": "I am currently trying to learn Typescript!"
         }
     ]
 }
