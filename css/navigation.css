@@ -76,6 +76,8 @@
   background: none;
   border: none;
   font-size: 30px;
+  padding: 0;
+  box-shadow: none;
 }
 
 @media all and (max-width: 1690px) {}
@@ -109,10 +111,10 @@
     display: block;
     width: 100%;
     margin: 0;
-    padding: 15px;
+    padding: 15px 0;
     text-align: center;
-    background: #2B7A78;
-    border-bottom: solid 1px rgb(34, 97, 95);
+    background: white;
+    border-bottom: solid #eee 1px;
   }
 
   .nav-menu {

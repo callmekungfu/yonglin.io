@@ -153,7 +153,7 @@ $('#aboutMeTrigger').click((evt) => {
   evt.preventDefault();
   var $aboutMe = $('.about-me');
   $aboutMe.removeClass('fadeOutLeftBig')
-  $aboutMe.removeClass('hidden');
+  $aboutMe.removeClass('visuallyhidden');
   $aboutMe.addClass('fadeInLeftBig');
   $('.main').fadeOut();
   setTimeout(() => {
@@ -183,7 +183,7 @@ $('.close-about-us').click(() => {
   $aboutMe.removeClass('fadeInLeftBig');
   $aboutMe.addClass('fadeOutLeftBig');
   setTimeout(() => {
-    $aboutMe.addClass('hidden');
+    $aboutMe.addClass('visuallyhidden');
   }, 900);
 })
 
@@ -193,6 +193,11 @@ $('.contact-link').click(function() {
     }, 1000);
 });
 
+$('.work-link').click(function() {
+  $('html,body').animate({
+      scrollTop: $(".first-project").offset().top
+    }, 800);
+});
 
 $('.contact-info').keyup((evt) => {
   var $this = $(evt.target);

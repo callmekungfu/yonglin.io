@@ -249,7 +249,8 @@ section {
 
 .hero .project-title {
   font-size: 3em;
-  line-height: 1.2
+  line-height: 1.2;
+  color: #feffff
 }
 
 .hero .project-intro {
@@ -553,19 +554,12 @@ footer .social-links a {
 }
 
 .carousel-cell {
-  margin-right: 20px;
-  overflow: hidden;
+  width: 33%;
 }
 
-.carousel-cell img {
+.carousel img {
   display: block;
-  height: 200px;
-}
-
-@media screen and (min-width: 768px) {
-  .carousel-cell img {
-    height: 400px;
-  }
+  max-width: 100%;
 }
 
 /* ==========================================================================
@@ -873,8 +867,108 @@ button,
   display: none;
 }
 
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
+@media only screen and (max-width: 426px) {
+  .mobile-hidden {
+    display: none
+  }
+
+  .mobile-only {
+    display: unset;
+  }
+  .col-xs-12 {
+    grid-column: span 12;
+  }
+  
+  .col-xs-11 {
+    grid-column: span 11;
+  }
+  
+  .col-xs-10 {
+    grid-column: span 10;
+  }
+  
+  .col-xs-9 {
+    grid-column: span 9;
+  }
+  
+  .col-xs-8 {
+    grid-column: span 8;
+  }
+  
+  .col-xs-7 {
+    grid-column: span 7;
+  }
+  
+  .col-xs-6 {
+    grid-column: span 6;
+  }
+  
+  .col-xs-5 {
+    grid-column: span 5;
+  }
+  
+  .col-xs-4 {
+    grid-column: span 4;
+  }
+  
+  .col-xs-3 {
+    grid-column: span 3;
+  }
+  
+  .col-xs-2 {
+    grid-column: span 2;
+  }
+  
+  .col-xs-1 {
+    grid-column: span 1;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+  }
+  
+  h4 {
+    font-size: 1em;
+  }
+  
+  h5 {
+    font-size: 0.8em;
+  }
+
+  p {
+    font-size: 0.8em;
+  }
+
+  .project-desc {
+    padding: 0 15px;
+  }
+
+  .footer {
+    display: block;
+    text-align: center;
+    padding: 50px 0;
+  }
+
+  .contact-form {
+    padding: 0;
+  }
+
+  .inline-contact button {
+    width: 80%;
+  }
+
+  .footer .social-media-list{
+    width: 100%
+  }
+
 }
 
 @media print,
