@@ -222,6 +222,7 @@ $('.send-btn').click((evt) => {
   var $title = $('.contact-title');
   var $desc = $('.contact-desc');
   message.body = $('#contactMessage').val();
+  console.log(message);
   $('#contactMessage').removeClass('fadeIn')
   $('#contactMessage').fadeOut("fast");
   $(".send-btn").removeClass('rotateIn');
@@ -229,20 +230,46 @@ $('.send-btn').click((evt) => {
   $title.css('opacity', '0');
   $desc.css('opacity', '0');
   $('.contact-btn').css('opacity', '0');
-  $title.text("Message Sent!")
-  $desc.text("I have received your message and will respond to you as soon as possible, thank you for contacting me! :)")
-  $('.contact-btn').hide()
-  $('.contact-prompt').show();
-  $title.removeClass("fadeOutUp");
-  $desc.removeClass("fadeOutUp");
-  setTimeout(function () {
-    $('.response-icon').removeClass('hidden');
-    $('.response-icon').addClass("bounceIn");
-    setTimeout(() => {
-      $title.addClass("fadeInDown");
-      $desc.addClass("fadeInDown");
-    }, 250);
-  }, 500);
+  $.ajax({
+    url: 'https://www.youmirrortube.com/email',
+    method: 'post',
+    data: message,
+    ContentType: 'application/json',
+  })
+    .done((data) => {
+      console.log(data);
+      if (data.status === 'success') {
+        $title.text("Message Sent!")
+        $desc.text("I have received your message and will respond to you as soon as possible, thank you for contacting me! :)")
+        $('.contact-btn').hide()
+        $('.contact-prompt').show();
+        $title.removeClass("fadeOutUp");
+        $desc.removeClass("fadeOutUp");
+        setTimeout(function () {
+          $('.response-icon').removeClass('hidden');
+          $('.response-icon').addClass("bounceIn");
+          setTimeout(() => {
+            $title.addClass("fadeInDown");
+            $desc.addClass("fadeInDown");
+          }, 250);
+        }, 500);
+      } else {
+        $title.text("Failed!");
+        $desc.text('Something went wrong sending the message, please try again later');
+        $('.contact-btn').hide();
+        $('.contact-prompt').show();
+        $title.removeClass("fadeOutUp");
+        $desc.removeClass("fadeOutUp");
+        setTimeout(function () {
+          $('.response-icon').removeClass('hidden');
+          $('.response-icon').addClass("bounceIn");
+          setTimeout(() => {
+            $title.addClass("fadeInDown");
+            $desc.addClass("fadeInDown");
+          }, 250);
+        }, 500);
+      }
+    });
 });
 
 function contactStep2() {
