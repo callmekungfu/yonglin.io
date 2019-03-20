@@ -526,6 +526,12 @@ footer .social-links a {
   justify-content: space-around
 }
 
+.qrcode-btn-container a {
+  display: block;
+  margin: 10px 0;
+  text-align: center;
+}
+
 /* ==========================================================================
    Project Details Page
    ========================================================================== */
@@ -951,7 +957,7 @@ button,
     padding: 0 15px;
   }
 
-  .footer {
+  footer, .footer {
     display: block;
     text-align: center;
     padding: 50px 0;
@@ -968,7 +974,10 @@ button,
   .footer .social-media-list{
     width: 100%
   }
-
+  .social {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 @media print,
