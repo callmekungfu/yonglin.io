@@ -1,32 +1,32 @@
 {
     "facts": [
         {
-            "icon": "🎵",
-            "content": "My favorite song at the moment is Natural by Imagine Dragons"
+            "icon": "💻",
+            "content": "I am really good in web design."
         },
         {
-            "icon": "😸",
-            "content": "I have a American Bobtail Cat named Tiger"
+            "icon": "💻",
+            "content": "I am proficient with React and Angular."
         },
         {
-            "icon": "🎮",
-            "content": "I am currently playing Zelda: Breath of The Wild"
+            "icon": "💻",
+            "content": "I am currently learning VueJS, and ASP.NET."
         },
         {
-            "icon": "🇨🇳",
-            "content": "I'm born in China! I moved to Canada after middle school."
+            "icon": "🎤",
+            "content": "I can speak English and Chinese Fluently."
         },
         {
-            "icon": "☕",
-            "content": "I like Mocha Coffee or Americano, depending on the day..."
+            "icon": "💻",
+            "content": "I am proficient with NodeJS and Java Sling."
         },
         {
-            "icon": "🥤",
-            "content": "Bubble tea is life, brown rice green milk tea is my favorite."
+            "icon": "💻",
+            "content": "Surprisingly, this website is still built with jQuery."
         },
         {
             "icon": "👩‍💻",
-            "content": "I am currently trying to learn Typescript!"
+            "content": "There's something about TypeScript that just makes it awesome."
         }
     ]
 }

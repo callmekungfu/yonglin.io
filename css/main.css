@@ -324,6 +324,10 @@ section {
   font-weight: 700
 }
 
+.project-links a {
+  margin: 0 10px;
+}
+
 .contact-form {
   text-align: center;
   border: solid 3px #222;
