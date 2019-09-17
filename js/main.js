@@ -195,7 +195,7 @@ $('.contact-link').click(function() {
 
 $('.work-link').click(function() {
   $('html,body').animate({
-      scrollTop: $(".first-project").offset().top
+      scrollTop: $(".project").offset().top
     }, 800);
 });
 
