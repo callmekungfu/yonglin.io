@@ -4,13 +4,15 @@ import Image from 'next/image';
 const NavBar = () => {
   return (
     <div className="flex flex-row items-center justify-between p-4">
-      <div className="">
-        <Image
-          src="/img/logo.svg"
-          alt="The Yonglin Logo"
-          width={32}
-          height={32}
-        />
+      <div className="select-none">
+        <a href="#">
+          <Image
+            src="/img/logo.svg"
+            alt="The Yonglin Logo"
+            width={32}
+            height={32}
+          />
+        </a>
       </div>
       <div className="font-medium">
         <NavBarLink href="#" linkText="Resume" />
@@ -36,7 +38,9 @@ const NavBarLink = ({ href, linkText, highlighted }: NavBarLinkProps) => (
   <a
     href={href}
     className={`${
-      highlighted ? 'text-indigo hover:text-indigo-darker' : 'hover:text-indigo'
+      highlighted
+        ? 'text-indigo hover:text-indigo-darker focus:text-indigo-darker'
+        : 'hover:text-indigo focus:text-indigo'
     } transition duration-500 ease-in-out px-4`}
   >
     {linkText}

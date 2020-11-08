@@ -15,12 +15,16 @@ export default function Home() {
         ></link>
       </Head>
       <main>
-        <div className="min-h-screen">
+        <div className="min-h-screen flex flex-col">
           <NavBar />
-          <h1 className="font-sans text-lg">
-            Hello I'm Yong Lin. I build performant applications and delightful
-            UX
-          </h1>
+          <div className="flex flex-grow flex-col align-center justify-center text-center">
+            <h1 className="font-sans text-5xl font-semibold px-40">
+              Hello I'm Yong Lin. I build performant applications and delightful
+              UX
+            </h1>
+            <div className="text-2xl">with a lot of tech.</div>
+          </div>
+          <div className="text-center py-4">Scroll down for more</div>
         </div>
       </main>
     </div>

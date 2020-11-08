@@ -18,6 +18,7 @@ module.exports = {
     fontFamily: {
       display: ['Interstate', ...defaultTheme.fontFamily.sans],
       body: ['Interstate', ...defaultTheme.fontFamily.sans],
+      sans: ['Interstate', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       colors: {
