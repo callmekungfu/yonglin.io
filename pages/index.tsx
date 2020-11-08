@@ -1,8 +1,9 @@
 import Head from 'next/head';
+import NavBar from '../components/NavBar';
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className="container mx-auto">
       <Head>
         <title>
           Yong Lin Wang | I build performant applications and delightful UX
@@ -14,9 +15,13 @@ export default function Home() {
         ></link>
       </Head>
       <main>
-        <h1>
-          Hello I'm Yong Lin. I build performant applications and delightful UX
-        </h1>
+        <div className="min-h-screen">
+          <NavBar />
+          <h1 className="font-sans text-lg">
+            Hello I'm Yong Lin. I build performant applications and delightful
+            UX
+          </h1>
+        </div>
       </main>
     </div>
   );
