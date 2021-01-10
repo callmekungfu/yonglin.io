@@ -94,9 +94,9 @@ const NavBarLink = ({ href, linkText, highlighted }: NavBarLinkProps) => (
 const NavBarMobileLinkList = () => {
   return (
     <div className="px-8 pt-0 pb-8 flex flex-col w-4/5 text-center mx-auto">
-      {NavBarLinks.map((l) => {
-        <NavBarLink {...l} key={l.href} />;
-      })}
+      {NavBarLinks.map((l) => (
+        <NavBarLink {...l} key={l.href} />
+      ))}
     </div>
   );
 };
