@@ -6,6 +6,29 @@ export interface NavBarProps {
   hideContact?: boolean;
 }
 
+const NavBarLinks: NavBarLinkProps[] = [
+  {
+    href: 'https://d2v2zv7pilalpy.cloudfront.net/resumev2.pdf',
+    linkText: 'Resume',
+    highlighted: false,
+  },
+  {
+    href: '#projects',
+    linkText: 'Projects',
+    highlighted: false,
+  },
+  {
+    href: 'https://medium.com/@wangyonglin1999',
+    linkText: 'Blog',
+    highlighted: false,
+  },
+  {
+    href: 'mailto:hello@yonglin.io',
+    linkText: 'Contact Me!',
+    highlighted: true,
+  },
+];
+
 const NavBar = (p: NavBarProps) => {
   const [showMenu, setShowMenu] = useState(false);
   return (
@@ -37,19 +60,9 @@ const NavBar = (p: NavBarProps) => {
           </button>
         </div>
         <div className={`hidden md:block font-medium`}>
-          <NavBarLink href="#" linkText="Resume" />
-          <NavBarLink href="#projects" linkText="Projects" />
-          <NavBarLink
-            href="https://medium.com/@wangyonglin1999"
-            linkText="Blog"
-          />
-          {!p.hideContact && (
-            <NavBarLink
-              href="mailto:hello@yonglin.io"
-              linkText="Contact Me!"
-              highlighted
-            />
-          )}
+          {NavBarLinks.map((l) => (
+            <NavBarLink {...l} key={l.href} />
+          ))}
         </div>
       </div>
       {showMenu && <NavBarMobileLinkList />}
@@ -79,14 +92,9 @@ const NavBarLink = ({ href, linkText, highlighted }: NavBarLinkProps) => (
 const NavBarMobileLinkList = () => {
   return (
     <div className="px-8 pt-0 pb-8 flex flex-col w-4/5 text-center mx-auto">
-      <NavBarLink href="#" linkText="Resume" />
-      <NavBarLink href="#projects" linkText="Projects" />
-      <NavBarLink href="https://medium.com/@wangyonglin1999" linkText="Blog" />
-      <NavBarLink
-        href="mailto:hello@yonglin.io"
-        linkText="Contact Me!"
-        highlighted
-      />
+      {NavBarLinks.map((l) => {
+        <NavBarLink {...l} key={l.href} />;
+      })}
     </div>
   );
 };
