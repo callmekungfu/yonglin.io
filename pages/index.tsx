@@ -21,22 +21,21 @@ export default function Home() {
         <div className="min-h-screen flex flex-col mb-20 pb-12">
           <NavBar />
           <div className="flex flex-grow flex-col align-center justify-center text-center">
-            <h1 className="font-sans text-5xl font-semibold px-40 mb-4">
+            <h1 className="font-sans text-2xl md:text-5xl font-semibold md:px-40 mb-4">
               Hello I'm <FancyLink>Yong Lin</FancyLink>. I build performant
               applications and delightful user experiences.
             </h1>
-            <div className="text-2xl">with a lot of tech.</div>
+            <div className="text-lg md:text-2xl">with a lot of tech.</div>
             <SocialLinks />
           </div>
-          <div className="text-center py-4">Scroll for more</div>
+          <div className="text-sm text-center py-4">Scroll for more</div>
         </div>
         {/* Projects Section */}
         <section className="mb-20" id="projects">
-          <SectionTitle>Projects</SectionTitle>
           {/* Project Cards */}
           {/* Minmi */}
           <div
-            className="rounded-3xl px-20 py-16 w-11/12 flex items-center justify-between max-h-96 ml-auto mb-8"
+            className="rounded-3xl p-8 md:px-20 md:py-16 mx-4 md:w-11/12 flex flex-col-reverse md:flex-row items-center justify-between md:max-h-96 md:ml-auto mb-8"
             style={{ backgroundColor: '#FCF8F5' }}
           >
             {/* Content */}
@@ -59,15 +58,15 @@ export default function Home() {
           </div>
           {/* UOSC */}
           <div
-            className="rounded-3xl px-20 py-16 w-11/12 flex items-center justify-between max-h-96 mb-8 overflow-hidden"
+            className="rounded-3xl p-8 md:px-20 md:py-16 mx-4 md:w-11/12 flex flex-col md:flex-row items-center justify-between md:max-h-96 mb-8 overflow-hidden"
             style={{ backgroundColor: '#F5F9FA' }}
           >
             {/* Image */}
-            <div>
+            <div className="max-h-60 md:max-h-full overflow-hidden md:overflow-visible mb-6 md:mb-0">
               <img
                 src="/img/uosc.png"
                 alt="UOSC Home Page Logo"
-                className="transform w-9/12 mr-auto translate-y-52 -translate-x-20"
+                className="md:transform md:w-6/12 mr-auto translate-y-52 -translate-x-20"
               />
             </div>
             {/* Content */}
@@ -91,7 +90,7 @@ export default function Home() {
           </div>
           {/* Nutlogger Native */}
           <div
-            className="rounded-3xl px-20 py-16 w-11/12 flex items-center justify-between max-h-96 ml-auto mb-8 overflow-hidden"
+            className="rounded-3xl p-8 md:px-20 md:py-16 mx-4 md:w-11/12 flex flex-col-reverse md:flex-row items-center justify-between md:max-h-96 overflow-hidden md:ml-auto mb-8"
             style={{ backgroundColor: '#F3F5EB' }}
           >
             {/* Content */}
@@ -113,25 +112,24 @@ export default function Home() {
               </div>
             </div>
             {/* Image */}
-            <div className="w-1/3">
+            <div className="md:w-1/3 max-h-60 md:max-h-full overflow-hidden mb-6 md:mb-0">
               <img
                 src="/img/nutlogger.png"
                 alt="Nutlogger Project Screenshots"
-                className="w-full mx-auto"
+                className="w-9/12 mx-auto transform -translate-y-32 md:transform-none"
               />
             </div>
           </div>
-          <div className="text-center text-lg">And more to come...</div>
         </section>
         {/* Footer section */}
         <section className="min-h-screen flex flex-col">
           <div className="pt-8"></div>
           {/* <NavBar centerList hideContact /> */}
           <div className="flex flex-grow flex-col align-center justify-center text-center">
-            <div className="text-2xl mb-2">
+            <div className="md:text-2xl mb-2">
               That's it for now... Want to chat with me?
             </div>
-            <div className="font-sans text-5xl font-semibold px-40 mb-4">
+            <div className="text-2xl font-sans md:text-5xl font-semibold md:px-40 mb-4">
               <a
                 href="mailto:hello@yonglin.io"
                 className="hover:text-indigo-darker"

@@ -10,7 +10,9 @@ interface SideSocialLinkProps {
 const SocialLinks = (p: SocialLinksProps) => {
   return (
     <div
-      className={p.horizontal ? 'flex items-center' : 'absolute left-0 ml-6'}
+      className={`hidden ${
+        p.horizontal ? 'md:flex items-center' : 'absolute md:block left-0 ml-6'
+      }`}
     >
       {/* GitHub */}
       <SocialLink

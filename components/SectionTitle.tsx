@@ -7,19 +7,7 @@ export interface SectionTitleProps
 }
 
 const SectionTitle = (props: SectionTitleProps) => {
-  return (
-    <div
-      style={{
-        writingMode: 'vertical-rl',
-        textOrientation: 'mixed',
-      }}
-      className={`uppercase absolute font-bold ${
-        props.position === 'left' ? 'left-0 ml-10' : 'right-0 mr-10'
-      }`}
-    >
-      {props.children}
-    </div>
-  );
+  return <div className="uppercase font-bold">{props.children}</div>;
 };
 
 export default SectionTitle;
