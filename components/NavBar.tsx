@@ -1,28 +1,43 @@
-import react from 'react';
 import Image from 'next/image';
 
-const NavBar = () => {
+export interface NavBarProps {
+  centerList?: boolean;
+  hideContact?: boolean;
+}
+
+const NavBar = (p: NavBarProps) => {
   return (
-    <div className="flex flex-row items-center justify-between p-4">
-      <div className="select-none">
-        <a href="#">
-          <Image
-            src="/img/logo.svg"
-            alt="The Yonglin Logo"
-            width={32}
-            height={32}
-          />
-        </a>
-      </div>
+    <div
+      className={`flex flex-row items-center p-4 ${
+        p.centerList ? 'justify-center' : 'justify-between'
+      }`}
+    >
+      {!p.centerList && (
+        <div className="select-none">
+          <a href="#">
+            <Image
+              src="/img/logo.svg"
+              alt="The Yonglin Logo"
+              width={32}
+              height={32}
+            />
+          </a>
+        </div>
+      )}
       <div className="font-medium">
         <NavBarLink href="#" linkText="Resume" />
-        <NavBarLink href="#" linkText="Projects" />
-        <NavBarLink href="#" linkText="Blog" />
+        <NavBarLink href="#projects" linkText="Projects" />
         <NavBarLink
-          href="mailto:hello@yonglin.io"
-          linkText="Contact Me!"
-          highlighted
+          href="https://medium.com/@wangyonglin1999"
+          linkText="Blog"
         />
+        {!p.hideContact && (
+          <NavBarLink
+            href="mailto:hello@yonglin.io"
+            linkText="Contact Me!"
+            highlighted
+          />
+        )}
       </div>
     </div>
   );
