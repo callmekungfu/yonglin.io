@@ -11,7 +11,7 @@ export default function Home() {
     setAudio(new Audio('/assets/yonglin2.mp3'));
   }, []);
   return (
-    <div className="container mx-auto">
+    <div className="container md:mx-auto">
       <Head>
         <title>
           Yong Lin Wang | I build performant applications and delightful UX
@@ -163,9 +163,9 @@ export default function Home() {
           </div>
         </section>
         {/* Footer section */}
-        <section className="min-h-screen flex flex-col">
+        <section className="min-h-screen flex flex-col mx-4">
           <div className="pt-8"></div>
-          {/* <NavBar centerList hideContact /> */}
+          <NavBar centerList hideContact />
           <div className="flex flex-grow flex-col align-center justify-center text-center">
             <div className="md:text-2xl mb-2">
               That's it for now... Want to chat with me?

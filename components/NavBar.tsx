@@ -50,15 +50,17 @@ const NavBar = (p: NavBarProps) => {
             </a>
           </div>
         )}
-        <div>
-          <button
-            className="md:hidden"
-            aria-label="Toggle navigation menu display"
-            onClick={() => setShowMenu(!showMenu)}
-          >
-            <i className="fas fa-bars"></i>
-          </button>
-        </div>
+        {!p.centerList && (
+          <div>
+            <button
+              className="md:hidden"
+              aria-label="Toggle navigation menu display"
+              onClick={() => setShowMenu(!showMenu)}
+            >
+              <i className="fas fa-bars"></i>
+            </button>
+          </div>
+        )}
         <div className={`hidden md:block font-medium`}>
           {NavBarLinks.map((l) => (
             <NavBarLink {...l} key={l.href} />
