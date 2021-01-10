@@ -11,7 +11,9 @@ const SocialLinks = (p: SocialLinksProps) => {
   return (
     <div
       className={`hidden ${
-        p.horizontal ? 'md:flex items-center' : 'absolute md:block left-0 ml-6'
+        p.horizontal
+          ? 'md:flex items-center'
+          : 'absolute md:block left-0 ml-6 top-1/2 -mt-11'
       }`}
     >
       {/* GitHub */}

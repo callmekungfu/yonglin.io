@@ -1,10 +1,15 @@
 import Head from 'next/head';
-import FancyLink, { FancyLinkButton } from '../components/Link';
+import { useEffect, useState } from 'react';
+import FancyLink from '../components/Link';
 import NavBar from '../components/NavBar';
-import SectionTitle from '../components/SectionTitle';
 import SocialLinks from '../components/SideSocial';
 
 export default function Home() {
+  const [shouldShowYongLin, setShouldShowYonglin] = useState(false);
+  const [audio, setAudio] = useState<HTMLAudioElement>();
+  useEffect(() => {
+    setAudio(new Audio('/assets/yonglin2.mp3'));
+  }, []);
   return (
     <div className="container mx-auto">
       <Head>
@@ -16,22 +21,58 @@ export default function Home() {
           rel="stylesheet"
           href="https://use.typekit.net/ejl5vdk.css"
         ></link>
+        {/* Facebook Links */}
+        <meta property="og:url" content="https://yonglin.io" />
+        <meta property="og:title" content="Yong Lin's Website" />
+        <meta
+          property="og:description"
+          content="I build performant applications and delightful UX, come checkout my website"
+        />
+        <meta property="og:image" content="http://yonglin.io/img/yonglin.png" />
+        {/* Twitter Links */}
+        <meta name="twitter:title" content="Yong Lin's Website" />
+        <meta
+          name="twitter:description"
+          content="I build performant applications and delightful UX, come checkout my website"
+        />
+        <meta
+          name="twitter:image"
+          content="http://yonglin.io/img/yonglin.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <main>
-        <div className="min-h-screen flex flex-col mb-20 pb-12">
+        <SocialLinks />
+        <div className="min-h-screen flex flex-col mb-20 pb-12 relative">
           <NavBar />
+          <img
+            style={{
+              zIndex: -1,
+            }}
+            className={`absolute m-auto left-0 right-0 top-0 bottom-0 w-4/5 transition-all ${
+              shouldShowYongLin ? 'opacity-30' : 'opacity-0'
+            }`}
+            src="/img/yonglin.png"
+            alt="My name written as Chinese characters"
+          />
           <div className="flex flex-grow flex-col align-center justify-center text-center">
             <h1 className="font-sans text-2xl md:text-5xl font-semibold md:px-40 mb-4">
-              Hello I'm <FancyLink>Yong Lin</FancyLink>. I build performant
-              applications and delightful user experiences.
+              Hello I'm{' '}
+              <FancyLink
+                onMouseEnter={() => setShouldShowYonglin(true)}
+                onMouseLeave={() => setShouldShowYonglin(false)}
+                onClick={() => audio?.play()}
+              >
+                Yong Lin
+              </FancyLink>
+              . I build performant applications and delightful user experiences.
             </h1>
             <div className="text-lg md:text-2xl">with a lot of tech.</div>
-            <SocialLinks />
           </div>
           <div className="text-sm text-center py-4">Scroll for more</div>
         </div>
         {/* Projects Section */}
-        <section className="mb-20" id="projects">
+        <section className="mb-20 pt-4" id="projects">
           {/* Project Cards */}
           {/* Minmi */}
           <div
@@ -130,16 +171,23 @@ export default function Home() {
               That's it for now... Want to chat with me?
             </div>
             <div className="text-2xl font-sans md:text-5xl font-semibold md:px-40 mb-4">
-              <a
-                href="mailto:hello@yonglin.io"
-                className="hover:text-indigo-darker"
-              >
-                hello@yonglin.io
-              </a>
+              <a href="mailto:hello@yonglin.io">hello@yonglin.io</a>
             </div>
           </div>
           <div className="flex justify-center py-4">
             <SocialLinks horizontal />
+          </div>
+          <div className="text-center py-4 opacity-60">
+            v2.0.0 Built by Yong Lin with ❤️ and a 💻, you can find the{' '}
+            <a
+              href="http://github.com/callmekungfu/my-website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              source code here
+            </a>
+            .
           </div>
         </section>
       </main>
