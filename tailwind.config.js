@@ -1,5 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-
+const colors = require('tailwindcss/colors');
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -14,6 +14,16 @@ module.exports = {
         default: '#275efe',
         darker: '#012FBA',
       },
+      transparent: 'transparent',
+      current: 'currentColor',
+      white: colors.white,
+      gray: colors.trueGray,
+      indigo: colors.indigo,
+      red: colors.rose,
+      yellow: colors.amber,
+      blue: colors.blue,
+      green: colors.green,
+      orange: colors.orange,
     },
     fontFamily: {
       display: ['Interstate', ...defaultTheme.fontFamily.sans],
@@ -26,6 +36,11 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      textOpacity: ['dark'],
+    },
+  },
   plugins: [],
+  darkMode: 'class',
 };
