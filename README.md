@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/callmekungfu/yonglin.io">
     <img src="public/img/logo_colorful.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -17,7 +17,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://yonglin.io)
 
 yonglin.io is the personal website for Yong Lin (that's me!). It will be one place for all of my project information, blogs and my portfolio. This website is currently in active development, look forward for new updates soon!
 
