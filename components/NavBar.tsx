@@ -1,9 +1,11 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { shouldShowDarkMode } from '../lib/helpers';
 
 export interface NavBarProps {
   centerList?: boolean;
   hideContact?: boolean;
+  onDarkModeToggle?: (dark: boolean) => void;
 }
 
 const NavBarLinks: NavBarLinkProps[] = [
@@ -31,6 +33,21 @@ const NavBarLinks: NavBarLinkProps[] = [
 
 const NavBar = (p: NavBarProps) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+
+    localStorage.setItem('theme', newMode ? 'dark' : 'light');
+    if (p.onDarkModeToggle) {
+      p.onDarkModeToggle(newMode);
+    }
+  };
+
+  useEffect(() => {
+    setIsDarkMode(shouldShowDarkMode());
+  }, []);
+
   return (
     <div>
       <div
@@ -61,10 +78,26 @@ const NavBar = (p: NavBarProps) => {
             </button>
           </div>
         )}
-        <div className={`hidden md:block font-medium`}>
-          {NavBarLinks.map((l) => (
-            <NavBarLink {...l} key={l.href} />
-          ))}
+        <div className="flex items-center">
+          <div className="hidden md:block font-medium mr-2">
+            {NavBarLinks.map((l) => (
+              <NavBarLink {...l} key={l.href} />
+            ))}
+          </div>
+          {!p.centerList && (
+            <div
+              className={`w-16 h-6 flex items-center bg-gray-300 rounded-full p-1 duration-300 ease-in-out cursor-pointer ${
+                isDarkMode ? 'bg-green-400' : ''
+              }`}
+              onClick={toggleDarkMode}
+            >
+              <div
+                className={`bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out ${
+                  isDarkMode ? 'translate-x-10' : ''
+                }`}
+              ></div>
+            </div>
+          )}
         </div>
       </div>
       {showMenu && <NavBarMobileLinkList />}
