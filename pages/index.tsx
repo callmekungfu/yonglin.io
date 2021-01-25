@@ -4,20 +4,34 @@ import CommonHead from '../components/Head';
 import FancyLink from '../components/Link';
 import NavBar from '../components/NavBar';
 import SocialLinks from '../components/SideSocial';
+import TechStackModal from '../components/TechStack';
 import { shouldShowDarkMode } from '../lib/helpers';
 
 export default function Home() {
   const [shouldShowYongLin, setShouldShowYonglin] = useState(false);
+  const [shouldShowTechStack, setShouldShowTechStack] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement>();
+
+  const showTechStackModal = () => {
+    const body = document.getElementsByTagName('body').item(0);
+    if (body) {
+      body.style.overflow = 'hidden';
+      setShouldShowTechStack(true);
+    }
+  };
 
   // Perform the following action after page has been loaded in DOM
   useEffect(() => {
     setDarkMode(shouldShowDarkMode());
     setAudio(new Audio('/assets/yonglin2.mp3'));
   }, []);
+
   return (
     <div className={darkMode ? 'dark' : 'too-bright'}>
+      {shouldShowTechStack && (
+        <TechStackModal onHide={() => setShouldShowTechStack(false)} />
+      )}
       <div className="dark:bg-black dark:text-white">
         <div className="container md:mx-auto">
           <CommonHead />
@@ -50,7 +64,7 @@ export default function Home() {
                 </h1>
                 <div className="text-lg md:text-2xl">
                   with a lot of{' '}
-                  <FancyLink onClick={() => audio?.play()}>tech</FancyLink>.
+                  <FancyLink onClick={showTechStackModal}>tech</FancyLink>.
                 </div>
               </div>
               <div className="text-sm text-center py-4">Scroll for more</div>
