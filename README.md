@@ -60,6 +60,7 @@ Distributed under the MIT License. Feel free to fork this site and customize it 
 ## Acknowledgements
 - Thank you Shannon Guo for reading my name
 - [Using icons from Font Awesome](https://fontawesome.com)
+- [Hosted on Vercel](https://vercel.com)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
