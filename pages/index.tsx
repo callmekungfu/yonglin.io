@@ -181,10 +181,10 @@ export default function Home({ tagData }: HomePageProps) {
                 <WebsiteVersionTag release={tagData} /> Built by Yong Lin with
                 ❤️ and a 💻, you can find the{' '}
                 <a
-                  href="http://github.com/callmekungfu/my-website"
+                  href="http://github.com/callmekungfu/yonglin.io"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline"
+                  className="text-indigo-default hover:text-indigo-darker"
                 >
                   source code here
                 </a>

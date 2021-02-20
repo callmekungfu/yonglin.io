@@ -49,14 +49,18 @@ export interface WebsiteVersionTagProps {
 
 const WebsiteVersionTag = ({ fallback, release }: WebsiteVersionTagProps) => {
   return (
-    <a
-      href={release.html_url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-indigo-default hover:text-indigo-darker"
-    >
-      {'v' + release?.tag_name ?? fallback ?? '2.0.0'}
-    </a>
+    <>
+      {(fallback || release) && (
+        <a
+          href={release.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-indigo-default hover:text-indigo-darker"
+        >
+          {'v' + release?.tag_name ?? fallback}
+        </a>
+      )}
+    </>
   );
 };
 
