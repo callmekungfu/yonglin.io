@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { shouldShowDarkMode } from '../lib/helpers';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 export interface NavBarProps {
   centerList?: boolean;
@@ -85,18 +85,11 @@ const NavBar = (p: NavBarProps) => {
             ))}
           </div>
           {!p.centerList && (
-            <div
-              className={`w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 duration-300 ease-in-out cursor-pointer ${
-                isDarkMode ? 'bg-green-400' : ''
-              }`}
-              onClick={toggleDarkMode}
-            >
-              <div
-                className={`bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out ${
-                  isDarkMode ? 'translate-x-6' : ''
-                }`}
-              ></div>
-            </div>
+            <DarkModeSwitch
+              checked={isDarkMode}
+              onChange={toggleDarkMode}
+              size={24}
+            />
           )}
         </div>
       </div>
