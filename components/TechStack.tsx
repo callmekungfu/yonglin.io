@@ -8,7 +8,6 @@ const ModalOverlay = styled.div`
   height: 100%;
   overflow: auto;
   z-index: 900;
-  background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 `;
 
@@ -54,10 +53,10 @@ const TechStackModal = ({ onHide }: TechStackModalProps) => {
   };
   return (
     <>
-      <ModalOverlay>
+      <ModalOverlay className="bg-white bg-opacity-50 dark:bg-black">
         <div className="fixed right-10 top-10">
           <button onClick={hideTechStackModal}>
-            <i className="fas fa-times fa-3x"></i>
+            <i className="fas fa-times fa-3x dark:text-white"></i>
           </button>
         </div>
         <div className="container mx-auto dark:text-white mt-32">
@@ -99,7 +98,7 @@ const TechStackModal = ({ onHide }: TechStackModalProps) => {
               <Stack name="MySQL" iconURL="/img/tech/mysql.png" />
             </div>
           </div>
-          <div className="mb-16 text-center text-sm text-gray-600">
+          <div className="mb-16 text-center text-sm text-gray-600 dark:text-gray-400">
             Psss. This site is built with Tailwind CSS, NextJS and TypeScript.
           </div>
         </div>
