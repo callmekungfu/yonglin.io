@@ -1,13 +1,20 @@
-import Head from 'next/head';
+import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import CommonHead from '../components/Head';
 import FancyLink from '../components/Link';
 import NavBar from '../components/NavBar';
 import SocialLinks from '../components/SideSocial';
 import TechStackModal from '../components/TechStack';
+import WebsiteVersionTag, {
+  GitHubReleaseResponse,
+} from '../components/VersionTag';
 import { shouldShowDarkMode } from '../lib/helpers';
 
-export default function Home() {
+interface HomePageProps {
+  tagData: GitHubReleaseResponse;
+}
+
+export default function Home({ tagData }: HomePageProps) {
   const [shouldShowYongLin, setShouldShowYonglin] = useState(false);
   const [shouldShowTechStack, setShouldShowTechStack] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -171,12 +178,13 @@ export default function Home() {
                 <SocialLinks horizontal />
               </div>
               <div className="text-center py-4 opacity-60">
-                v2.0.0 Built by Yong Lin with ❤️ and a 💻, you can find the{' '}
+                <WebsiteVersionTag release={tagData} /> Built by Yong Lin with
+                ❤️ and a 💻, you can find the{' '}
                 <a
-                  href="http://github.com/callmekungfu/my-website"
+                  href="http://github.com/callmekungfu/yonglin.io"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline"
+                  className="text-indigo-default hover:text-indigo-darker"
                 >
                   source code here
                 </a>
@@ -189,3 +197,17 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  // TODO move this url to environment
+  const res = await fetch(
+    'https://api.github.com/repos/callmekungfu/yonglin.io/releases/latest',
+  );
+  const data = await res.json();
+  return {
+    props: {
+      tagData: data,
+    },
+    revalidate: 43200,
+  };
+};
