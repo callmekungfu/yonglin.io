@@ -1,3 +1,13 @@
 import ProjectDetailsPage from '../../../components/ProjectDetails/ProjectDetails';
 
-<ProjectDetailsPage># Hello World</ProjectDetailsPage>
+export const meta = {
+  title: 'University of Ottawa Software Club Landing Page',
+  desc:
+    'For this project I worked on the landing page for UOSC, a student run software club in University of Ottawa.',
+};
+
+export default ({ children }) => (
+  <ProjectDetailsPage meta={meta}>{children}</ProjectDetailsPage>
+);
+
+# Hello World
