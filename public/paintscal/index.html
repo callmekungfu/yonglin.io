@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Paintscal | Beta</title>
+	    <meta name="author" content="Yonglin Wang">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/paintscal/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/paintscal/css/spectrum.css">
+    </head>
+    <body>
+    	<div class="intro" style="position: fixed;" >
+    		<h1>Paintscal</h1>
+    		<p>Simplify the way of visualizing mod calculation in a pascal triangle</p>
+    	</div>
+        <canvas height="" id="hexmap"></canvas>
+	  	<footer>
+	  		<div class="alert">
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+				<span class="error-info">Yonglin is hot.</span>
+			</div>
+	  		<form action="" onsubmit="getFormData(); return false;">
+	  			<div class="num-input"><input type="number" name="mod" id="mod" min="1" placeholder="MOD" /></div>
+	  			<div class="num-input rows"><input type="number" name="rows" id="rows" min="1" placeholder="ROWS" /></div>
+	  			<br>
+	  		</form>
+	  		<a class="btn btn-default btn-md" id="download">Download Triangle Image</a>
+	  		<div class="color-holder">
+	  			<input type='text' class='basic' id="custom" />
+	  		</div>
+	  		<div class="credit-container"><p class="credit">Crafted with </p> <div class="heart">❤</div> <p class="credit"> by <a href="//yonglinwang.ca">Yonglin Wang</a></p></div>
+	  	</footer>
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="/paintscal/js/colorFinder.js"></script>
+        <script src="/paintscal/js/render.js"></script>
+        <script src="/paintscal/js/spectrum.js"></script>
+        <script type="text/javascript" src="/paintscal/js/ui.js"></script>
+    </body>
+</html>
