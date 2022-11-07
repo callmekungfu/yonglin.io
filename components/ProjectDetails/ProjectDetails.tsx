@@ -7,11 +7,12 @@ interface ProjectDetailsMeta {
 
 interface ProjectDetailsProps {
   meta: ProjectDetailsMeta;
+  children: React.ReactNode;
 }
 
 const ProjectDetailsPage: React.FC<ProjectDetailsProps> = ({
-  children,
   meta,
+  children,
 }) => (
   <>
     <Head>

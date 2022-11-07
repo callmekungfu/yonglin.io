@@ -18,7 +18,6 @@ export default function Home({ tagData }: HomePageProps) {
   const [shouldShowYongLin, setShouldShowYonglin] = useState(false);
   const [shouldShowTechStack, setShouldShowTechStack] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const [audio, setAudio] = useState<HTMLAudioElement>();
 
   const showTechStackModal = () => {
     const body = document.getElementsByTagName('body').item(0);
@@ -31,7 +30,6 @@ export default function Home({ tagData }: HomePageProps) {
   // Perform the following action after page has been loaded in DOM
   useEffect(() => {
     setDarkMode(shouldShowDarkMode());
-    setAudio(new Audio('/assets/yonglin2.mp3'));
   }, []);
 
   return (
@@ -62,7 +60,6 @@ export default function Home({ tagData }: HomePageProps) {
                   <FancyLink
                     onMouseEnter={() => setShouldShowYonglin(true)}
                     onMouseLeave={() => setShouldShowYonglin(false)}
-                    onClick={() => audio?.play()}
                   >
                     Yong Lin
                   </FancyLink>
@@ -171,7 +168,9 @@ export default function Home({ tagData }: HomePageProps) {
                   That's it for now... Want to chat with me?
                 </div>
                 <div className="text-2xl font-sans md:text-5xl font-semibold md:px-40 mb-4">
-                  <a href="mailto:hello@yonglin.io">hello@yonglin.io</a>
+                  <a href="mailto:wangyonglin1999@gmail.com">
+                    wangyonglin1999@gmail.com
+                  </a>
                 </div>
               </div>
               <div className="flex justify-center py-4">
