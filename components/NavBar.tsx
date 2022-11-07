@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { shouldShowDarkMode } from '../lib/helpers';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import Link from 'next/link';
 
 export interface NavBarProps {
   centerList?: boolean;
@@ -57,14 +58,14 @@ const NavBar = (p: NavBarProps) => {
       >
         {!p.centerList && (
           <div className="select-none">
-            <a href="#">
+            <Link href="/">
               <img
                 src={isDarkMode ? '/img/logo_colorful.png' : '/img/logo.svg'}
-                alt="The Yonglin Logo"
+                alt="The Yong Logo"
                 width={32}
                 height={32}
               />
-            </a>
+            </Link>
           </div>
         )}
         {!p.centerList && (

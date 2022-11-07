@@ -28,6 +28,7 @@ module.exports = {
       display: ['Interstate', ...defaultTheme.fontFamily.sans],
       body: ['Interstate', ...defaultTheme.fontFamily.sans],
       sans: ['Interstate', ...defaultTheme.fontFamily.sans],
+      mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
     },
     extend: {
       colors: {

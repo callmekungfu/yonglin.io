@@ -6,7 +6,6 @@ const CommonHead = () => (
       Yong Lin Wang | I build performant applications and delightful UX
     </title>
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="https://use.typekit.net/ejl5vdk.css"></link>
     {/* Facebook Links */}
     <meta property="og:url" content="https://yonglin.io" />
     <meta property="og:title" content="Yong Lin's Website" />

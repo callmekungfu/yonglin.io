@@ -1,10 +1,9 @@
-import BlogLayout from '../../../components/Blog/BlogLayout';
-
-export const meta = {
-  title: "How to use GitHub's GraphQL API with Express.js",
-  desc: 'This article will show how you can leverage the power of GitHub GraphQL API in your express application.',
-  category: 'tutorial',
-};
+---
+title: "How to use GitHub's GraphQL API with Express.js"
+desc: 'This article will show how you can leverage the power of GitHub GraphQL API in your express application.'
+category: 'tutorial'
+date: 'November 7, 2022'
+---
 
 GitHub offers a powerful REST based API for developers to get data and integrate with its platform, with API version 4, they also introduced the GitHub GraphQL API. This article will show how you can leverage the power of GitHub GraphQL API in your express application.
 
@@ -169,7 +168,3 @@ app.listen(port, () => {
 If you visit http://localhost:8080/github-profile, you should be able to see a json with your user profile info!
 
 **Tada! We have integrated our application with GitHub! Now the possibility is limitless!**
-
-export default ({ children }) => (
-  <BlogLayout meta={meta}>{children}</BlogLayout>
-);
