@@ -49,7 +49,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ data, content }) => {
             </div>
             <div className="pt-1 px-10 w-4 bg-gray-300 my-10" />
             {/* Blog content frame */}
-            <div className="prose lg:prose-lg dark:prose-stone">
+            <div className="prose lg:prose-lg dark:prose-invert">
               <MDXRemote {...content} />
             </div>
           </div>
