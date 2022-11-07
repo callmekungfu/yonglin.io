@@ -40,6 +40,6 @@ module.exports = {
       textOpacity: ['dark'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
   darkMode: 'class',
 };
