@@ -21,12 +21,12 @@ const NavBarLinks: NavBarLinkProps[] = [
     highlighted: false,
   },
   {
-    href: 'https://medium.com/@wangyonglin1999',
+    href: '/blog',
     linkText: 'Blog',
     highlighted: false,
   },
   {
-    href: 'mailto:hello@yonglin.io',
+    href: 'mailto:wangyonglin1999@gmail.com',
     linkText: 'Contact Me!',
     highlighted: true,
   },

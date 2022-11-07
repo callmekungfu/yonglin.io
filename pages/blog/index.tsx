@@ -47,20 +47,18 @@ const Blog: React.FC<BlogLayoutProps> = ({ posts }) => {
             <div>
               {posts.map((post, i) => (
                 <div
-                  className={`border-solid ${
-                    i === posts.length - 1 ? 'border-y' : 'border-t'
-                  } border-gray-100`}
+                  className={`border-solid border-b border-gray-100`}
                   key={post.slug}
                 >
                   <div className="py-10">
-                    <div className="text-gray-600 font-mono text-sm">
+                    <div className="dark:text-white text-gray-600 font-mono text-sm">
                       {post.data.date}
                     </div>
                     <div className="text-xl font-sans font-semibold my-3">
                       {post.data.title}
                     </div>
                     <div className="font-thin">{post.data.desc}</div>
-                    <div className="mt-6 text-indigo-default hover:text-indigo-darker transition-all ease-in">
+                    <div className="mt-6 text-indigo-default dark:text-indigo-lighter dark:hover:text-indigo-default hover:text-indigo-darker transition-all ease-in">
                       <Link href={`/blog/${post.slug}`}>Read more</Link>
                     </div>
                   </div>

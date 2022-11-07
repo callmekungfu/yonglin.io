@@ -168,7 +168,9 @@ export default function Home({ tagData }: HomePageProps) {
                   That's it for now... Want to chat with me?
                 </div>
                 <div className="text-2xl font-sans md:text-5xl font-semibold md:px-40 mb-4">
-                  <a href="mailto:hello@yonglin.io">hello@yonglin.io</a>
+                  <a href="mailto:wangyonglin1999@gmail.com">
+                    wangyonglin1999@gmail.com
+                  </a>
                 </div>
               </div>
               <div className="flex justify-center py-4">
