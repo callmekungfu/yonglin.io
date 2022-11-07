@@ -18,7 +18,6 @@ export default function Home({ tagData }: HomePageProps) {
   const [shouldShowYongLin, setShouldShowYonglin] = useState(false);
   const [shouldShowTechStack, setShouldShowTechStack] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const [audio, setAudio] = useState<HTMLAudioElement>();
 
   const showTechStackModal = () => {
     const body = document.getElementsByTagName('body').item(0);
@@ -31,7 +30,6 @@ export default function Home({ tagData }: HomePageProps) {
   // Perform the following action after page has been loaded in DOM
   useEffect(() => {
     setDarkMode(shouldShowDarkMode());
-    setAudio(new Audio('/assets/yonglin2.mp3'));
   }, []);
 
   return (
@@ -62,7 +60,6 @@ export default function Home({ tagData }: HomePageProps) {
                   <FancyLink
                     onMouseEnter={() => setShouldShowYonglin(true)}
                     onMouseLeave={() => setShouldShowYonglin(false)}
-                    onClick={() => audio?.play()}
                   >
                     Yong Lin
                   </FancyLink>

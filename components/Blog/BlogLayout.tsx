@@ -1,19 +1,16 @@
 import Head from 'next/head';
 
-interface ProjectDetailsMeta {
+interface BlogDetailsMeta {
   title: string;
   desc: string;
 }
 
-interface ProjectDetailsProps {
-  meta: ProjectDetailsMeta;
+interface BlogLayoutProps {
+  meta: BlogDetailsMeta;
   children: React.ReactNode;
 }
 
-const ProjectDetailsPage: React.FC<ProjectDetailsProps> = ({
-  meta,
-  children,
-}) => (
+const BlogLayout: React.FC<BlogLayoutProps> = ({ meta, children }) => (
   <>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,4 +24,4 @@ const ProjectDetailsPage: React.FC<ProjectDetailsProps> = ({
   </>
 );
 
-export default ProjectDetailsPage;
+export default BlogLayout;

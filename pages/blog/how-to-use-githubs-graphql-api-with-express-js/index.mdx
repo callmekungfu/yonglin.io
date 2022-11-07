@@ -1,0 +1,18 @@
+import BlogLayout from '../../../components/Blog/BlogLayout';
+
+export const meta = {
+  title: "How to use GitHub's GraphQL API with Express.js",
+  desc: 'GitHub offers a powerful REST based API for developers to get data and integrate with its platform, with API version 4, they also introduced the GitHub GraphQL API. This article will show how you can leverage the power of GitHub GraphQL API in your express application.',
+};
+
+# How to use GitHub's GraphQL API with Express.js
+
+GitHub offers a powerful REST based API for developers to get data and integrate with its platform, with API version 4, they also introduced the GitHub GraphQL API. This article will show how you can leverage the power of GitHub GraphQL API in your express application.
+
+## About GraphQL
+
+GraphQL is a data querying language that is strongly typed, introspective, and hierarchal. It acts as an application layer as well as a specification. The Graph in GraphQL refers to a graph structure where nodes define objects (repositories, gists, users, etc.) and edges define relationship between objects. The API traverses and returns application data based on the schema definition, independent of how the data is stored.
+
+export default ({ children }) => (
+  <BlogLayout meta={meta}>{children}</BlogLayout>
+);
