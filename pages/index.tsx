@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import CommonHead from '../components/Head';
 import FancyLink from '../components/Link';
 import NavBar from '../components/NavBar';
+import ProjectCard from '../components/ProjectCard';
 import SocialLinks from '../components/SideSocial';
 import TechStackModal from '../components/TechStack';
 import WebsiteVersionTag, {
@@ -56,7 +57,7 @@ export default function Home({ tagData }: HomePageProps) {
               />
               <div className="flex flex-grow flex-col align-center justify-center text-center">
                 <h1 className="font-sans text-2xl md:text-5xl font-semibold md:px-40 mb-4">
-                  Hello I'm{' '}
+                  I'm{' '}
                   <FancyLink
                     onMouseEnter={() => setShouldShowYonglin(true)}
                     onMouseLeave={() => setShouldShowYonglin(false)}
@@ -76,88 +77,84 @@ export default function Home({ tagData }: HomePageProps) {
             {/* Projects Section */}
             <section className="mb-20 pt-4" id="projects">
               {/* Project Cards */}
-              {/* Minmi */}
-              <div className="rounded-3xl p-8 md:px-20 md:py-16 mx-4 md:w-11/12 flex flex-col-reverse md:flex-row items-center justify-between md:max-h-96 md:ml-auto mb-8 dark:bg-orange-400 bg-orange-50">
-                {/* Content */}
-                <div className="max-w-xs">
-                  <h3 className="text-2xl mb-4 font-medium">Minmi</h3>
-                  <p className="text-sm mb-12">
-                    Minmi is a progressive unopinionated REST framework for
-                    Deno, inspired by Express.js
-                  </p>
-                  <div className="uppercase">Coming Soon...</div>
-                </div>
-                {/* Image */}
-                <div>
-                  <img
-                    src="/img/minmi.svg"
-                    alt="Minmi Project Logo"
-                    className="w-9/12 mx-auto"
-                  />
-                </div>
-              </div>
+              <ProjectCard
+                title="Chronicle"
+                desc="A customer visit tracking and reporting SaaS for personal care businesses."
+                image={
+                  <div className="max-h-60 md:max-h-full overflow-hidden md:overflow-visible mb-6 md:mb-0 max-w-lg">
+                    <img
+                      src="/img/chronicle.png"
+                      alt="Chronicle Screenshot"
+                      className="md:max-w-sm md:translate-y-20"
+                    />
+                  </div>
+                }
+                bgColor="bg-orange-50"
+                bgColorDark="bg-orange-400"
+                cto={
+                  <a
+                    href="https://github.com/konomiAI/Chronicle"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="uppercase hover:underline focus:underline"
+                  >
+                    See Project
+                  </a>
+                }
+              />
               {/* UOSC */}
-              <div className="rounded-3xl p-8 md:px-20 md:py-16 mx-4 md:w-11/12 flex flex-col md:flex-row items-center justify-between md:max-h-96 mb-8 overflow-hidden dark:bg-blue-400 bg-blue-50">
-                {/* Image */}
-                <div className="max-h-60 md:max-h-full overflow-hidden md:overflow-visible mb-6 md:mb-0 max-w-lg">
-                  <img
-                    src="/img/uosc.png"
-                    alt="UOSC Home Page Logo"
-                    className="md:transform md:w-6/12 mr-auto translate-y-52 -translate-x-20"
-                  />
-                </div>
-                {/* Content */}
-                <div className="max-w-xs">
-                  <h3 className="text-2xl mb-4 font-medium">
-                    UOSC Web Presence
-                  </h3>
-                  <p className="text-sm mb-12">
-                    UOSC is a club that aims to enable students to improve their
-                    software development skills.
-                  </p>
-                  <div>
-                    <a
-                      href="https://github.com/uosoftwareclub/website"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="uppercase hover:underline focus:underline"
-                    >
-                      See Project
-                    </a>
+              <ProjectCard
+                title="UOSC Web Presence"
+                desc="UOSC is a club that aims to enable students to improve their software development skills."
+                image={
+                  <div className="max-h-60 md:max-h-full overflow-hidden md:overflow-visible mb-6 md:mb-0 max-w-lg">
+                    <img
+                      src="/img/uosc.png"
+                      alt="UOSC Home Page Logo"
+                      className="md:max-w-md md:translate-y-20 md:-translate-x-20"
+                    />
                   </div>
-                </div>
-              </div>
+                }
+                bgColor="bg-blue-50"
+                bgColorDark="bg-blue-400"
+                cto={
+                  <a
+                    href="https://github.com/uosoftwareclub/website"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="uppercase hover:underline focus:underline"
+                  >
+                    See Project
+                  </a>
+                }
+                reversed
+              />
               {/* Nutlogger Native */}
-              <div className="rounded-3xl p-8 md:px-20 md:py-16 mx-4 md:w-11/12 flex flex-col-reverse md:flex-row items-center justify-between md:max-h-96 overflow-hidden md:ml-auto mb-8 dark:bg-green-400 bg-green-50">
-                {/* Content */}
-                <div className="max-w-xs">
-                  <h3 className="text-2xl mb-4 font-medium">
-                    Nutlogger Native
-                  </h3>
-                  <p className="text-sm mb-12">
-                    A computer vision powered nutrition logger, take a picture
-                    of your food and get feedback.
-                  </p>
-                  <div>
-                    <a
-                      href="https://github.com/callmekungfu/nutlogger-native"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="uppercase hover:underline focus:underline"
-                    >
-                      See Project
-                    </a>
+              <ProjectCard
+                title="Nutlogger Native"
+                desc="A computer vision powered nutrition logger, take a picture of your food to track what you eat."
+                image={
+                  <div className="md:w-1/3 max-h-60 md:max-h-full overflow-hidden mb-6 md:mb-0">
+                    <img
+                      src="/img/nutlogger.png"
+                      alt="Nutlogger Project Screenshots"
+                      className="w-10/12 mx-auto transform -translate-y-32 md:transform-none"
+                    />
                   </div>
-                </div>
-                {/* Image */}
-                <div className="md:w-1/3 max-h-60 md:max-h-full overflow-hidden mb-6 md:mb-0">
-                  <img
-                    src="/img/nutlogger.png"
-                    alt="Nutlogger Project Screenshots"
-                    className="w-9/12 mx-auto transform -translate-y-32 md:transform-none"
-                  />
-                </div>
-              </div>
+                }
+                bgColor="bg-green-50"
+                bgColorDark="bg-green-400"
+                cto={
+                  <a
+                    href="https://github.com/callmekungfu/nutlogger-native"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="uppercase hover:underline focus:underline"
+                  >
+                    See Project
+                  </a>
+                }
+              />
             </section>
             {/* Footer section */}
             <section className="min-h-screen flex flex-col mx-4">
