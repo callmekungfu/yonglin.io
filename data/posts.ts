@@ -22,6 +22,14 @@ export const getPosts = (): BlogPostMetadata[] => {
     };
   });
 
+  allPostsData.sort((a, b) => {
+    if (a.data.date < b.data.date) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
   return allPostsData;
 };
 

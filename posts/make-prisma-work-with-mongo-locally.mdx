@@ -1,0 +1,107 @@
+---
+title: 'Make Prisma work with MongoDB locally'
+desc: 'PrismaJS is a great ORM, but making it work locally with MongoDB can be quite challenging'
+category: 'learning'
+date: '2022-11-08'
+---
+
+Prisma is an Object Relation Mapping (ORM) solution for TS/JS, it is by far my favorite ORM with its ability to introspect into existing databases, intuitive schema models, type-safe API and amazing tooling. With Prisma 3, the library now supports NoSQL databases like MongoDB, making it even more enticing to use for projects where relational databases are not necessary.
+
+While the integration is amazingly smooth when you are working with a MongoDB deployment with replica sets enabled, if you try to run prisma against a database without it you may experience errors that looks something like this:
+
+```
+PrismaClientUnknownRequestError2 [PrismaClientUnknownRequestError]:
+Invalid `prisma.post.create()` invocation in /index.ts:9:21
+   6 await prisma.$connect()
+   7
+   8 // Create the first post
+→  9 await prisma.post.create(
+  Error in connector: Database error. error code: unknown, error message: Transactions are not supported by this deployment
+    at cb (/node_modules/@prisma/client/runtime/index.js:34804:17)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  clientVersion: '3.xx.0'
+}
+```
+
+The Prisma team explains that a replica set is required for transactions in MongoDB and that to prevent partial writes nested queries require transactions to be enabled. A simple solution to get a MongoDB instance with replica set out of the box is to deploy a free MongoDB Atlas instance, but that might not be viable some times especially if you just want a offline capable development environment.
+
+So this guide will provide a few strategies for running a local deployment of MongoDB on Docker that will work with Prisma.
+
+## Use an image with replica sets enabled
+
+This is the simplest solution as there are quite a few images on DockerHub that has replica sets enabled by default, the one we are using here is published by Bitnami, tagged `bitnami/mongodb`.
+
+To use the image in Docker Compose, simply replace the `mongo` in your compose file with `bitnami/mongodb:latest`, and add a few environment variables needed for replica sets, for example:
+
+```yml
+version: '3.8'
+services:
+  database:
+    image: 'bitnami/mongodb:latest'
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=database
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_ROOT_USER=anyuser
+      - MONGODB_ROOT_PASSWORD=anypassword
+      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+    ports:
+      - '27017:27017'
+```
+
+Note that the `MONGODB_REPLICA_SET_MODE`, `MONGODB_REPLICA_SET_KEY` are required to enable replica sets, while `MONGODB_ADVERTISED_HOSTNAME` is strongly recommended. Here is an explaination of what each of the environment variable does:
+
+- `MONGODB_REPLICA_SET_MODE`: select the mode to run the replica set as, possible values are `primary`, `secondary`, and arbiter. For our case, `primary` is recommended.
+- `MONGODB_REPLICA_SET_KEY`: the replica set key, should be longer than 5 characters.
+- `MONGODB_ADVERTISED_HOSTNAME`: the advertised hostname, this is not required but if you find there to be an issue without it, set the value to either `127.0.0.1`, `host.docker.internal`, `localhost`, or the service name depending on your setup.
+
+This solution has a few gotchas:
+
+1. The `latest` version of the image is not compatible with Apple Silicon devices, so if you know the service may need to run on such device, use `bitnami/mongodb:4.4` instead.
+2. The image does not have any arm optimized tags, so expect worse battery life performance if used on Apple Silicon.
+
+## Build your own image on top of `mongo`
+
+If you don't want to leverage an image built by a 3rd party (albite a verified one), you can build your own replica set enabled docker image for your local development, this is a Dockerfile I found to work well, taken from Prisma's examples
+
+```dockerfile
+FROM mongo:5
+
+# we take over the default & start mongo in replica set mode in a background task
+ENTRYPOINT mongod --port $MONGO_REPLICA_PORT --replSet rs0 --bind_ip 0.0.0.0 & MONGOD_PID=$!; \
+  # we prepare the replica set with a single node and prepare the root user config
+  INIT_REPL_CMD="rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: '$MONGO_REPLICA_HOST:$MONGO_REPLICA_PORT' }] })"; \
+  INIT_USER_CMD="db.createUser({ user: '$MONGO_INITDB_ROOT_USERNAME', pwd: '$MONGO_INITDB_ROOT_PASSWORD', roles: [ 'root' ] })"; \
+  # we wait for the replica set to be ready and then submit the commands just above
+  until (mongo admin --port $MONGO_REPLICA_PORT --eval "$INIT_REPL_CMD && $INIT_USER_CMD"); do sleep 1; done; \
+  # we are done but we keep the container by waiting on signals from the mongo task
+  echo "REPLICA SET ONLINE"; wait $MONGOD_PID;
+```
+
+Then add the image and necessary environment variables to your compose yaml:
+
+```yml
+version: '3.8'
+
+services:
+  database:
+    build: ./database-img
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=anyuser
+	  - MONGO_INITDB_ROOT_PASSWORD=anypassword
+	  - MONGO_INITDB_DATABASE=database
+	  - MONGO_REPLICA_HOST=172.17.0.1
+	  - MONGO_REPLICA_PORT=27017
+    ports:
+      - 27017:27017
+```
+
+For this image, all 5 environment variables are necessary as they are used for initializing the database and creating the root user. It is recommended that you place the `Dockerfile` in a separate directory, they way I structured it is:
+
+```
+project
+│   docker-compose.yml
+└───database-img
+│   │   Dockerfile
+```
+
+That's it! You can test the connection with your database by using `prisma db pull` or `prisma db push`
