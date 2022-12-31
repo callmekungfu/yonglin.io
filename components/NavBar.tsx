@@ -11,12 +11,12 @@ export interface NavBarProps {
 
 const NavBarLinks: NavBarLinkProps[] = [
   {
-    href: 'https://d2v2zv7pilalpy.cloudfront.net/resumev2.pdf',
+    href: 'files/resume.pdf',
     linkText: 'Resume',
     highlighted: false,
   },
   {
-    href: '#projects',
+    href: '/#projects',
     linkText: 'Projects',
     highlighted: false,
   },
